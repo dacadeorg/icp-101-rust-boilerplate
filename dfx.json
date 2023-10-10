@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "canisters": {
+    "icp_rust_boilerplate_backend": {
+      "type": "rust",
+      "package": "icp_rust_boilerplate_backend",
+      "candid": "src/icp_rust_boilerplate_backend/icp_rust_boilerplate_backend.did"
+    },
+    "icp_rust_boilerplate_frontend": {
+      "type": "assets",
+      "source": [
+        "src/icp_rust_boilerplate_frontend/assets"
+      ],
+      "dependencies": [
+        "icp_rust_boilerplate_backend"
+      ]
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": "",
+      "args": ""
+    }
+  },
+  "output_env_file": ".env"
+}
