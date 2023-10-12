@@ -1,5 +1,5 @@
 [package]
-name = "icp_rust_boilerplate_backend"
+name = "icp_rust_message_board_contract_backend"
 version = "0.1.0"
 edition = "2021"
 
@@ -9,9 +9,8 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-candid = "0.9.3"
-ic-cdk = "0.10.0"
+candid = "0.9.9"
+ic-cdk = "0.11.1"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1.0"
 ic-stable-structures = { git = "https://github.com/lwshang/stable-structures.git", branch = "lwshang/update_cdk"}
-# See more about this specific version: https://github.com/dfinity/stable-structures/pull/108
