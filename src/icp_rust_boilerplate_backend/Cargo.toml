@@ -1,5 +1,5 @@
 [package]
-name = "icp_rust_message_board_contract_backend"
+name = "icp_rust_boilerplate_backend"
 version = "0.1.0"
 edition = "2021"
 

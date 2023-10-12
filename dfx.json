@@ -3,7 +3,7 @@
   "canisters": {
     "icp_rust_boilerplate_backend": {
       "type": "rust",
-      "package": "icp_rust_message_board_contract_backend",
+      "package": "icp_rust_boilerplate_backend",
       "candid": "src/icp_rust_boilerplate_backend/icp_rust_boilerplate_backend.did"
     }
   },
