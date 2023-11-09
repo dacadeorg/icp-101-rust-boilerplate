@@ -51,7 +51,7 @@ dfx start --background
 To start working on your project, you can use the following commands:
 
 ```bash
-git clone voting_system.git
+git clone https://github.com/Ganzzi/Voting-System-ICP.git
 cd voting_system/
 chmod +x did.sh
 npm run gen-deploy
