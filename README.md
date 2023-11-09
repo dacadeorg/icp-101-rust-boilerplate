@@ -1,85 +1,67 @@
-# icp_rust_message_board_contract
+# voting_system
+
+## Description:
+This smart contract, developed using the Internet Computer Protocol (ICP), facilitates a robust and transparent voting system. It empowers users to engage in diverse voting activities, ensuring the integrity and security of the entire process. With a decentralized and tamper-proof structure, this contract enables seamless execution of various election types, polls, and decision-making events, all within a secure and trusted environment.
+
+## Features:
+- Easy and secure addition of votes to the system.
+- Efficient retrieval of votes based on specific requirements.
+- Seamless access to the latest vote timestamp for effective tracking and analysis.
+- Reliable deletion of votes when necessary, ensuring data integrity and management.
+- Support for diverse types of elections and polls, accommodating varying voting scenarios.
+- Robust data management and storage mechanisms, ensuring the integrity and security of voting data.
+- Customizable settings and configurations, allowing flexibility in the voting process based on specific requirements and use cases.
+
+## Tech Stack:
+- Programming Language: Rust
+- Framework: Internet Computer Protocol (ICP)
+- Data Storage: Stable Memory and Stable BTreeMap
+- Web Assembly Target: wasm32-unknown-unknown
+- Libraries: candid, serde, ic-cdk
+- Development Tools: rustc, cargo, dfx
+- Version Control: Git
+
+## Installation
 
 ### Requirements
+Ensure you have the following installed in your development environment:
+
 * rustc 1.64 or higher
 ```bash
-$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-$ source "$HOME/.cargo/env"
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+source "$HOME/.cargo/env"
 ```
 * rust wasm32-unknown-unknown target
 ```bash
-$ rustup target add wasm32-unknown-unknown
+rustup target add wasm32-unknown-unknown
 ```
 * candid-extractor
 ```bash
-$ cargo install candid-extractor
+cargo install candid-extractor
 ```
 * install `dfx`
 ```bash
-$ DFX_VERSION=0.15.0 sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"
-$ echo 'export PATH="$PATH:$HOME/bin"' >> "$HOME/.bashrc"
-$ source ~/.bashrc
-$ dfx start --background
+DFX_VERSION=0.15.0 sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"
+echo 'export PATH="$PATH:$HOME/bin"' >> "$HOME/.bashrc"
+source ~/.bashrc
+dfx start --background
 ```
 
-If you want to start working on your project right away, you might want to try the following commands:
+### Install Locally
+To start working on your project, you can use the following commands:
 
 ```bash
-$ cd icp_rust_boilerplate/
-$ dfx help
-$ dfx canister --help
+git clone voting_system.git
+cd voting_system/
+chmod +x did.sh
+npm run gen-deploy
 ```
 
-## Update dependencies
-
-update the `dependencies` block in `/src/{canister_name}/Cargo.toml`:
-```
-[dependencies]
-candid = "0.9.9"
-ic-cdk = "0.11.1"
-serde = { version = "1", features = ["derive"] }
-serde_json = "1.0"
-ic-stable-structures = { git = "https://github.com/lwshang/stable-structures.git", branch = "lwshang/update_cdk"}
-```
-
-## did autogenerate
-
-Add this script to the root directory of the project:
-```
-https://github.com/buildwithjuno/juno/blob/main/scripts/did.sh
-```
-
-Update line 16 with the name of your canister:
-```
-https://github.com/buildwithjuno/juno/blob/main/scripts/did.sh#L16
-```
-
-After this run this script to generate Candid.
-Important note!
-
-You should run this script each time you modify/add/remove exported functions of the canister.
-Otherwise, you'll have to modify the candid file manually.
-
-Also, you can add package json with this content:
-```
-{
-    "scripts": {
-        "generate": "./did.sh && dfx generate",
-        "gen-deploy": "./did.sh && dfx generate && dfx deploy -y"
-      }
-}
-```
-
-and use commands `npm run generate` to generate candid or `npm run gen-deploy` to generate candid and to deploy a canister.
-
-## Running the project locally
-
-If you want to test your project locally, you can use the following commands:
+Interact with the Canister (add_vote & get_votes for examle):
 
 ```bash
-# Starts the replica, running in the background
-$ dfx start --background
-
-# Deploys your canisters to the replica and generates your candid interface
-$ dfx deploy
+dfx canister call votitng_system add_vote '("iamuser1", "iamuser2")'
+dfx canister call votitng_system get_votes
 ```
+
+and any other functions

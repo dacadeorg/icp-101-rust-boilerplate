@@ -1,0 +1,31 @@
+type Error = variant { InsertFailed; VoteNotFoundError };
+type Result = variant { Ok : Vote; Err : Error };
+type Result_1 = variant { Ok; Err : Error };
+type Result_2 = variant { Ok : vec record { text; nat64 }; Err : Error };
+type Result_3 = variant { Ok : vec text; Err : Error };
+type Result_4 = variant { Ok : nat64; Err : Error };
+type Result_5 = variant { Ok : text; Err : Error };
+type Result_6 = variant { Ok : vec Vote; Err : Error };
+type Vote = record {
+  id : nat64;
+  voter : text;
+  timestamp : nat64;
+  candidate : text;
+};
+service : {
+  add_vote : (text, text) -> (Result);
+  clear_votes : () -> (Result_1);
+  delete_vote : (nat64) -> (Result);
+  get_all_candidate_votes : () -> (Result_2) query;
+  get_candidates : () -> (Result_3) query;
+  get_latest_vote_timestamp : () -> (Result_4) query;
+  get_least_voted_candidate : () -> (Result_5) query;
+  get_most_voted_candidate : () -> (Result_5) query;
+  get_votes : () -> (Result_6) query;
+  get_votes_by_candidate : (text) -> (Result_6) query;
+  get_votes_by_voter : (text) -> (Result_6) query;
+  get_votes_in_time_range : (nat64, nat64) -> (Result_6) query;
+  get_votes_sorted_by_timestamp : () -> (Result_6) query;
+  total_votes : () -> (Result_4) query;
+  update_vote : (nat64, text, text) -> (Result);
+}

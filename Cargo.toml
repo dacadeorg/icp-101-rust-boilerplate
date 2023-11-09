@@ -1,4 +1,4 @@
 [workspace]
 members = [
-    "src/icp_rust_boilerplate_backend",
+    "src/votitng_system",
 ]
