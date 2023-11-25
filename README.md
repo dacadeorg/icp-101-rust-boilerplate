@@ -39,7 +39,7 @@ Utilize these commands for efficient project operations:
     
     or just
   
-  ```bash
+     ```bash
     make
     ```
   
