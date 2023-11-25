@@ -1,85 +1,39 @@
-# icp_rust_message_board_contract
+# icp_101_rust_boilerplate
 
-### Requirements
-* rustc 1.64 or higher
-```bash
-$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-$ source "$HOME/.cargo/env"
-```
-* rust wasm32-unknown-unknown target
-```bash
-$ rustup target add wasm32-unknown-unknown
-```
-* candid-extractor
-```bash
-$ cargo install candid-extractor
-```
-* install `dfx`
-```bash
-$ DFX_VERSION=0.15.0 sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"
-$ echo 'export PATH="$PATH:$HOME/bin"' >> "$HOME/.bashrc"
-$ source ~/.bashrc
-$ dfx start --background
-```
+This Rust-based boilerplate features a Docker-based development environment, streamlining setup and dependency management. The boilerplate is optimized for use in GitHub Codespaces, allowing for an efficient and seamless development experience.
 
-If you want to start working on your project right away, you might want to try the following commands:
+## Development Environment
 
-```bash
-$ cd icp_rust_boilerplate/
-$ dfx help
-$ dfx canister --help
-```
+The project is pre-configured with all necessary dependencies, including:
+- Rust environment
+- wasm32-unknown-unknown target
+- Candid-extractor
+- DFINITY SDK
 
-## Update dependencies
+## Getting Started
 
-update the `dependencies` block in `/src/{canister_name}/Cargo.toml`:
-```
-[dependencies]
-candid = "0.9.9"
-ic-cdk = "0.11.1"
-serde = { version = "1", features = ["derive"] }
-serde_json = "1.0"
-ic-stable-structures = { git = "https://github.com/lwshang/stable-structures.git", branch = "lwshang/update_cdk"}
-```
+### Start a Codespace
 
-## did autogenerate
+   - Open the project in a GitHub Codespace or in VS Code with the Remote-Containers extension.
+   - The devcontainer will automatically build and configure the environment.
 
-Add this script to the root directory of the project:
-```
-https://github.com/buildwithjuno/juno/blob/main/scripts/did.sh
-```
+### Develop and Test
 
-Update line 16 with the name of your canister:
-```
-https://github.com/buildwithjuno/juno/blob/main/scripts/did.sh#L16
-```
+- **Develop**: Start modifying the project and running commands within the devcontainer terminal.
+- **Test**: Utilize the provided `Makefile` commands for various operations.
 
-After this run this script to generate Candid.
-Important note!
+## Makefile Commands
 
-You should run this script each time you modify/add/remove exported functions of the canister.
-Otherwise, you'll have to modify the candid file manually.
+Utilize these commands for efficient project operations:
 
-Also, you can add package json with this content:
-```
-{
-    "scripts": {
-        "generate": "./did.sh && dfx generate",
-        "gen-deploy": "./did.sh && dfx generate && dfx deploy -y"
-      }
-}
-```
+- **Generate Candid Interface**
+    ```bash
+    make generate
+    ```
+    This command generates the Candid interface definitions for your canisters.
 
-and use commands `npm run generate` to generate candid or `npm run gen-deploy` to generate candid and to deploy a canister.
-
-## Running the project locally
-
-If you want to test your project locally, you can use the following commands:
-
-```bash
-# Starts the replica, running in the background
-$ dfx start --background
-
-# Deploys your canisters to the replica and generates your candid interface
-$ dfx deploy
-```
+- **Deploy Canister on the Playground**
+    ```bash
+    make gen-deploy (or just make)
+    ```
+    Deploy your canister to the ICP playground, a temporary mainnet environment for testing, valid for 20 minutes.
