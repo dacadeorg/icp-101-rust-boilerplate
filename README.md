@@ -36,7 +36,9 @@ Utilize these commands for efficient project operations:
     ```bash
     make gen-deploy
     ```
+    
     or just
+  
   ```bash
     make
     ```
