@@ -2,3 +2,4 @@
 members = [
     "src/icp_rust_boilerplate_backend",
 ]
+resolver = "2"
