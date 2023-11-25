@@ -34,6 +34,11 @@ Utilize these commands for efficient project operations:
 
 - **Deploy Canister on the Playground**
     ```bash
-    make gen-deploy (or just make)
+    make gen-deploy
     ```
+    or just
+  ```bash
+    make
+    ```
+  
     Deploy your canister to the ICP playground, a temporary mainnet environment for testing, valid for 20 minutes.
